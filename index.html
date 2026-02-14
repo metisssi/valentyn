@@ -2,19 +2,20 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Pro Kaju 💝</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             font-family: 'Georgia', serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -25,6 +26,7 @@
         .container {
             text-align: center;
             z-index: 10;
+            padding: 20px;
         }
 
         .valentine-btn {
@@ -406,32 +408,106 @@
             display: block;
         }
 
-        /* MOBILE RESPONSIVE */
+        /* MOBILE RESPONSIVE - УЛУЧШЕНО */
         @media (max-width: 768px) {
             .valentine-btn {
-                padding: 25px 50px;
-                font-size: 1.6rem;
+                padding: 28px 55px;
+                font-size: 1.8rem;
             }
 
             .letter-container {
-                width: 90vw;
-                height: 60vh;
-                max-width: 500px;
+                width: 92vw;
+                height: auto;
+                min-height: 400px;
+                max-height: 70vh;
+                max-width: 450px;
             }
 
             .letter {
-                padding: 40px 30px;
+                padding: 50px 35px;
+                top: 60%;
+            }
+
+            .letter.show {
+                transform: translateY(-75%);
             }
 
             .letter-name {
-                font-size: 3rem;
-                margin-bottom: 30px;
+                font-size: 3.8rem;
+                margin-bottom: 40px;
                 letter-spacing: 2px;
             }
 
             .sparkle-heart {
+                font-size: 2.5rem;
+                margin-left: 8px;
+            }
+
+            .letter-text {
+                font-size: 1.9rem;
+                line-height: 1.7;
+            }
+
+            .envelope-seal {
+                width: 70px;
+                height: 70px;
+            }
+
+            .seal-icon {
+                font-size: 32px;
+            }
+
+            .close-btn {
+                top: -55px;
+                right: 5px;
+                width: 42px;
+                height: 42px;
+                font-size: 20px;
+            }
+
+            .rose {
+                font-size: 35px;
+            }
+
+            .heart-particle {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .valentine-btn {
+                padding: 24px 45px;
+                font-size: 1.5rem;
+            }
+
+            .letter-container {
+                width: 95vw;
+                min-height: 350px;
+                max-height: 75vh;
+            }
+
+            .letter {
+                padding: 40px 25px;
+                top: 58%;
+            }
+
+            .letter.show {
+                transform: translateY(-70%);
+            }
+
+            .letter-name {
+                font-size: 3rem;
+                margin-bottom: 35px;
+                letter-spacing: 1px;
+            }
+
+            .sparkle-heart {
                 font-size: 2rem;
-                margin-left: 5px;
+                margin-left: 6px;
             }
 
             .letter-text {
@@ -445,45 +521,36 @@
             }
 
             .seal-icon {
-                font-size: 28px;
+                font-size: 26px;
             }
 
             .close-btn {
-                top: -45px;
-                right: 10px;
-                width: 35px;
-                height: 35px;
+                top: -50px;
+                right: 0;
+                width: 38px;
+                height: 38px;
                 font-size: 18px;
-            }
-
-            /* Reduce number of animations on mobile for performance */
-            .rose {
-                font-size: 30px;
-            }
-
-            .heart-particle {
-                font-size: 16px;
             }
         }
 
-        @media (max-width: 480px) {
+        /* Extra small phones */
+        @media (max-width: 380px) {
             .valentine-btn {
-                padding: 20px 40px;
-                font-size: 1.4rem;
+                padding: 20px 35px;
+                font-size: 1.3rem;
             }
 
             .letter-container {
-                width: 95vw;
-                height: 55vh;
+                min-height: 320px;
             }
 
             .letter {
-                padding: 30px 20px;
+                padding: 35px 20px;
             }
 
             .letter-name {
-                font-size: 2.5rem;
-                margin-bottom: 25px;
+                font-size: 2.6rem;
+                margin-bottom: 30px;
             }
 
             .sparkle-heart {
@@ -493,25 +560,42 @@
             .letter-text {
                 font-size: 1.4rem;
             }
-
-            .envelope-seal {
-                width: 50px;
-                height: 50px;
-            }
-
-            .seal-icon {
-                font-size: 22px;
-            }
         }
 
-        /* Landscape mode on mobile */
-        @media (max-height: 500px) and (orientation: landscape) {
+        /* Landscape mode on mobile - УЛУЧШЕНО */
+        @media (max-height: 600px) and (orientation: landscape) {
             .letter-container {
-                height: 85vh;
+                height: 88vh;
+                width: 70vw;
+                max-width: 550px;
+            }
+
+            .letter {
+                padding: 35px 30px;
             }
 
             .letter-name {
-                font-size: 2.2rem;
+                font-size: 2.8rem;
+                margin-bottom: 20px;
+            }
+
+            .sparkle-heart {
+                font-size: 2rem;
+            }
+
+            .letter-text {
+                font-size: 1.5rem;
+                line-height: 1.5;
+            }
+
+            .close-btn {
+                top: -45px;
+            }
+        }
+
+        @media (max-height: 500px) and (orientation: landscape) {
+            .letter-name {
+                font-size: 2.4rem;
                 margin-bottom: 15px;
             }
 
@@ -555,9 +639,9 @@
 
             // Detect if mobile for performance optimization
             const isMobile = window.innerWidth <= 768;
-            const roseCount = isMobile ? 25 : 40;
-            const heartCount = isMobile ? 40 : 60;
-            const sparkleCount = isMobile ? 80 : 150;
+            const roseCount = isMobile ? 20 : 40;
+            const heartCount = isMobile ? 35 : 60;
+            const sparkleCount = isMobile ? 60 : 150;
 
             // Create roses with different paths
             for (let i = 0; i < roseCount; i++) {
