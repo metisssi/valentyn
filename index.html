@@ -66,6 +66,10 @@
             box-shadow: 0 20px 50px rgba(238, 90, 111, 0.7);
         }
 
+        .valentine-btn:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
         /* Letter Container */
         .letter-container {
             position: fixed;
@@ -401,6 +405,120 @@
         .close-btn.show {
             display: block;
         }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .valentine-btn {
+                padding: 25px 50px;
+                font-size: 1.6rem;
+            }
+
+            .letter-container {
+                width: 90vw;
+                height: 60vh;
+                max-width: 500px;
+            }
+
+            .letter {
+                padding: 40px 30px;
+            }
+
+            .letter-name {
+                font-size: 3rem;
+                margin-bottom: 30px;
+                letter-spacing: 2px;
+            }
+
+            .sparkle-heart {
+                font-size: 2rem;
+                margin-left: 5px;
+            }
+
+            .letter-text {
+                font-size: 1.6rem;
+                line-height: 1.6;
+            }
+
+            .envelope-seal {
+                width: 60px;
+                height: 60px;
+            }
+
+            .seal-icon {
+                font-size: 28px;
+            }
+
+            .close-btn {
+                top: -45px;
+                right: 10px;
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+
+            /* Reduce number of animations on mobile for performance */
+            .rose {
+                font-size: 30px;
+            }
+
+            .heart-particle {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .valentine-btn {
+                padding: 20px 40px;
+                font-size: 1.4rem;
+            }
+
+            .letter-container {
+                width: 95vw;
+                height: 55vh;
+            }
+
+            .letter {
+                padding: 30px 20px;
+            }
+
+            .letter-name {
+                font-size: 2.5rem;
+                margin-bottom: 25px;
+            }
+
+            .sparkle-heart {
+                font-size: 1.8rem;
+            }
+
+            .letter-text {
+                font-size: 1.4rem;
+            }
+
+            .envelope-seal {
+                width: 50px;
+                height: 50px;
+            }
+
+            .seal-icon {
+                font-size: 22px;
+            }
+        }
+
+        /* Landscape mode on mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .letter-container {
+                height: 85vh;
+            }
+
+            .letter-name {
+                font-size: 2.2rem;
+                margin-bottom: 15px;
+            }
+
+            .letter-text {
+                font-size: 1.3rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -435,22 +553,28 @@
             // Hide button
             document.querySelector('.valentine-btn').style.display = 'none';
 
+            // Detect if mobile for performance optimization
+            const isMobile = window.innerWidth <= 768;
+            const roseCount = isMobile ? 25 : 40;
+            const heartCount = isMobile ? 40 : 60;
+            const sparkleCount = isMobile ? 80 : 150;
+
             // Create roses with different paths
-            for (let i = 0; i < 40; i++) {
+            for (let i = 0; i < roseCount; i++) {
                 setTimeout(() => {
                     createRose();
                 }, i * 90);
             }
 
             // Create hearts
-            for (let i = 0; i < 60; i++) {
+            for (let i = 0; i < heartCount; i++) {
                 setTimeout(() => {
                     createHeart();
                 }, i * 70);
             }
 
             // Create sparkles
-            for (let i = 0; i < 150; i++) {
+            for (let i = 0; i < sparkleCount; i++) {
                 setTimeout(() => {
                     createSparkle();
                 }, i * 35);
